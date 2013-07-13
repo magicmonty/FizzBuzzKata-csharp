@@ -3,13 +3,16 @@ using NUnit.Framework;
 
 namespace FizzBuzzKata
 {
-    [TestFixture()]
+    [TestFixture]
     public class Test
     {
-        [Test()]
-        public void TestCase()
-        {
-        }
+        /*
+         * Rules:
+         * - Values divisble by 3 are converted to "Fizz"
+         * - Values divisble by 5 are converted to "Buzz"
+         * - Values divisble by 3 and 5 are converted to "FizzBuzz"
+         * - All other values are converted to their string representations
+         */
     }
 }
 
