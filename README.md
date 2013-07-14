@@ -27,4 +27,14 @@
 15 -> "FizzBuzz"
 ```
 
+### Extension 1 - FizzBuzzBang
+
+**Rules**: 
+- The same rules as for FizzBuzz, but with the following additions: 
+- Values divisble by 7 are converted to "Bang"
+- Values divisble by 3 and 7 are converted to "FizzBang"
+- Values divisble by 5 and 7 are converted to "BuzzBang"
+- Values divisble by 3, 5 and 7 are converted to "FizzBuzzBang"
+- All other values are converted to their string representations
+
 This version is written in C# with Xamarin Studio (should be able to open in Visual Studio too) with Mono.
