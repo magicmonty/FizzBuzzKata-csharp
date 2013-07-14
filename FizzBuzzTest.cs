@@ -19,8 +19,10 @@ namespace FizzBuzzKata
             var value = 3;
 
             var result = string.Empty;
-            if (value % 3 == 0)
+            if (IsDivisibleBy(value, 3))
                 result = "Fizz";
+            if (IsDivisibleBy(value, 5))
+                result = "Buzz";
 
             Assert.That(result, Is.EqualTo("Fizz"));
         }
@@ -31,12 +33,17 @@ namespace FizzBuzzKata
             var value = 5;
 
             var result = string.Empty;
-            if (value % 3 == 0)
+            if (IsDivisibleBy(value, 3))
                 result = "Fizz";
-            if (value % 5 == 0)
+            if (IsDivisibleBy(value, 5))
                 result = "Buzz";
 
             Assert.That(result, Is.EqualTo("Buzz"));
+        }
+
+        private bool IsDivisibleBy(int value, int divisor)
+        {
+            return value % divisor == 0;
         }
     }
 }
