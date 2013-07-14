@@ -37,8 +37,9 @@ namespace FizzBuzzKata
         [TestCase(14, "14")]
         [TestCase(15, "FizzBuzz")]
         [TestCase(25, "Buzz")]
-        [TestCase(35, "FizzBuzz")]
-        [TestCase(3535, "FizzBuzz")]
+        [TestCase(31, "Fizz")]
+        [TestCase(52, "Buzz")]
+        [TestCase(53, "FizzBuzz")]
         public void ShouldReturnCorrectValue(int valueToTranslate, string expectedResult)
         {
             var translation = _sut.Translate(valueToTranslate);
