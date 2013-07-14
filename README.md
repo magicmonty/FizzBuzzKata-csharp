@@ -37,4 +37,8 @@
 - Values divisble by 3, 5 and 7 are converted to "FizzBuzzBang"
 - All other values are converted to their string representations
 
+### Special feature of completed Kata solution:
+
+**not a single if statement**
+
 This version is written in C# with Xamarin Studio (should be able to open in Visual Studio too) with Mono.
