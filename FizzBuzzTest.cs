@@ -41,6 +41,20 @@ namespace FizzBuzzKata
             Assert.That(result, Is.EqualTo("Buzz"));
         }
 
+        [Test]
+        public void ShouldReturnFizzBuzzForValuesDivisibleBy3and5()
+        {
+            var value = 3 * 5;
+
+            var result = string.Empty;
+            if (IsDivisibleBy(value, 3))
+                result += "Fizz";
+            if (IsDivisibleBy(value, 5))
+                result += "Buzz";
+
+            Assert.That(result, Is.EqualTo("FizzBuzz"));
+        }
+
         private bool IsDivisibleBy(int value, int divisor)
         {
             return value % divisor == 0;
