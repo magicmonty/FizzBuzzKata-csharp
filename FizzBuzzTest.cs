@@ -20,9 +20,9 @@ namespace FizzBuzzKata
 
             var result = string.Empty;
             if (IsDivisibleBy(value, 3))
-                result = "Fizz";
+                result += "Fizz";
             if (IsDivisibleBy(value, 5))
-                result = "Buzz";
+                result += "Buzz";
 
             Assert.That(result, Is.EqualTo("Fizz"));
         }
@@ -34,9 +34,9 @@ namespace FizzBuzzKata
 
             var result = string.Empty;
             if (IsDivisibleBy(value, 3))
-                result = "Fizz";
+                result += "Fizz";
             if (IsDivisibleBy(value, 5))
-                result = "Buzz";
+                result += "Buzz";
 
             Assert.That(result, Is.EqualTo("Buzz"));
         }
@@ -53,6 +53,23 @@ namespace FizzBuzzKata
                 result += "Buzz";
 
             Assert.That(result, Is.EqualTo("FizzBuzz"));
+        }
+
+        [Test]
+        public void ShouldReturnItselfAsStringForValuesNotDivisibleBy3or5()
+        {
+            var value = 7;
+
+            var result = string.Empty;
+            if (IsDivisibleBy(value, 3))
+                result += "Fizz";
+            if (IsDivisibleBy(value, 5))
+                result += "Buzz";
+            if (!IsDivisibleBy(value, 3) && !IsDivisibleBy(value, 5))
+                result += value.ToString();
+
+
+            Assert.That(result, Is.EqualTo("7"));
         }
 
         private bool IsDivisibleBy(int value, int divisor)
