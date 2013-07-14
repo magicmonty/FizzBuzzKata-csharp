@@ -14,43 +14,26 @@ namespace FizzBuzzKata
          * - All other values are converted to their string representations
          */
         [Test]
-        public void ShouldReturnFizzForValuesDivisibleBy3()
+        [TestCase(1, "1")]
+        [TestCase(2, "2")]
+        [TestCase(3, "Fizz")]
+        [TestCase(4, "4")]
+        [TestCase(5, "Buzz")]
+        [TestCase(6, "Fizz")]
+        [TestCase(7, "7")]
+        [TestCase(8, "8")]
+        [TestCase(9, "Fizz")]
+        [TestCase(10, "Buzz")]
+        [TestCase(11, "11")]
+        [TestCase(12, "Fizz")]
+        [TestCase(13, "13")]
+        [TestCase(14, "14")]
+        [TestCase(15, "FizzBuzz")]
+        public void ShouldReturnCorrectValue(int valueToTranslate, string expectedResult)
         {
-            var value = 3;
+            var translation = Translate(valueToTranslate);
 
-            var result = Translate(value);
-
-            Assert.That(result, Is.EqualTo("Fizz"));
-        }
-
-        [Test]
-        public void ShouldReturnBuzzForValuesDivisibleBy5()
-        {
-            var value = 5;
-
-            var result = Translate(value);
-
-            Assert.That(result, Is.EqualTo("Buzz"));
-        }
-
-        [Test]
-        public void ShouldReturnFizzBuzzForValuesDivisibleBy3and5()
-        {
-            var value = 3 * 5;
-
-            var result = Translate(value);
-
-            Assert.That(result, Is.EqualTo("FizzBuzz"));
-        }
-
-        [Test]
-        public void ShouldReturnItselfAsStringForValuesNotDivisibleBy3or5()
-        {
-            var value = 7;
-
-            var result = Translate(value);
-
-            Assert.That(result, Is.EqualTo("7"));
+            Assert.That(translation, Is.EqualTo(expectedResult));
         }
 
         string Translate(int value)
