@@ -48,6 +48,7 @@
 
 ### Special feature of completed Kata solution:
 
-**not a single if statement**
+- **not a single if statement**
+- flexible createable Rule sets via Abstract Factory pattern
 
 This version is written in C# with Xamarin Studio (should be able to open in Visual Studio too) with Mono.
