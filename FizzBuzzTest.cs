@@ -18,11 +18,7 @@ namespace FizzBuzzKata
         {
             var value = 3;
 
-            var result = string.Empty;
-            if (IsDivisibleBy(value, 3))
-                result += "Fizz";
-            if (IsDivisibleBy(value, 5))
-                result += "Buzz";
+            var result = Translate(value);
 
             Assert.That(result, Is.EqualTo("Fizz"));
         }
@@ -32,11 +28,7 @@ namespace FizzBuzzKata
         {
             var value = 5;
 
-            var result = string.Empty;
-            if (IsDivisibleBy(value, 3))
-                result += "Fizz";
-            if (IsDivisibleBy(value, 5))
-                result += "Buzz";
+            var result = Translate(value);
 
             Assert.That(result, Is.EqualTo("Buzz"));
         }
@@ -46,11 +38,7 @@ namespace FizzBuzzKata
         {
             var value = 3 * 5;
 
-            var result = string.Empty;
-            if (IsDivisibleBy(value, 3))
-                result += "Fizz";
-            if (IsDivisibleBy(value, 5))
-                result += "Buzz";
+            var result = Translate(value);
 
             Assert.That(result, Is.EqualTo("FizzBuzz"));
         }
@@ -60,7 +48,15 @@ namespace FizzBuzzKata
         {
             var value = 7;
 
+            var result = Translate(value);
+
+            Assert.That(result, Is.EqualTo("7"));
+        }
+
+        string Translate(int value)
+        {
             var result = string.Empty;
+
             if (IsDivisibleBy(value, 3))
                 result += "Fizz";
             if (IsDivisibleBy(value, 5))
@@ -68,8 +64,7 @@ namespace FizzBuzzKata
             if (!IsDivisibleBy(value, 3) && !IsDivisibleBy(value, 5))
                 result += value.ToString();
 
-
-            Assert.That(result, Is.EqualTo("7"));
+            return result;
         }
 
         private bool IsDivisibleBy(int value, int divisor)
