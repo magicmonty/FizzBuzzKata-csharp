@@ -2,23 +2,24 @@ namespace FizzBuzzKata
 {
     class TranslationRule : IRule
     {
-        private readonly int _divisor;
         private readonly string _translation;
 
         public TranslationRule(int divisor, string translation)
         {
-            _divisor = divisor;
+            Divisor = divisor;
             _translation = translation;
         }
+
+        protected int Divisor { get; private set; }
 
         public string Translation(int value)
         { 
             return _translation; 
         }
 
-        public bool IsFor(int value)
+        public virtual bool IsFor(int value)
         {
-            return value % _divisor == 0;
+            return value % Divisor == 0;
         }
     }
 }

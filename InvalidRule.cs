@@ -4,11 +4,11 @@ namespace FizzBuzzKata
 {
     class InvalidRule : IRule
     {
-        private readonly int[] _invalidDivisors;
+        protected int[] InvalidDivisors { get; private set; }
 
         public InvalidRule(int[] invalidDivisors)
         {
-            _invalidDivisors = invalidDivisors;
+            InvalidDivisors = invalidDivisors;
         }
 
         public string Translation(int value)
@@ -16,9 +16,22 @@ namespace FizzBuzzKata
             return value.ToString(); 
         }
 
-        public bool IsFor(int value)
+        public virtual bool IsFor(int value)
         {
-            return _invalidDivisors.All(divisor => value % divisor != 0);
+            return InvalidDivisors.All(divisor => value % divisor != 0);
+        }
+    }
+
+    class ExtendedInvalidRule : InvalidRule
+    {
+        public ExtendedInvalidRule(int[] invalidDivisors) : base(invalidDivisors)
+        {
+        }
+
+        public override bool IsFor(int value)
+        {
+            return base.IsFor(value) 
+                && InvalidDivisors.All(d => !value.ToString().Contains(d.ToString()));
         }
     }
 }

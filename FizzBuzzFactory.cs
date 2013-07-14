@@ -20,5 +20,14 @@ namespace FizzBuzzKata
 
             return new RuleBasedTranslator(rules);
         }
+
+        public static RuleBasedTranslator CreateExtendedFizzBuzz()
+        {
+            var rules = RuleFactory.CreateExtendedRules(
+                new RuleInitializer { Divisor = 3, Translation = "Fizz" }, 
+                new RuleInitializer { Divisor = 5, Translation = "Buzz" });
+
+            return new RuleBasedTranslator(rules);
+        }
     }
 }
