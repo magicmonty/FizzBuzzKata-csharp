@@ -1,5 +1,6 @@
 using System;
 using NUnit.Framework;
+using System.Linq;
 
 namespace FizzBuzzKata
 {
@@ -38,14 +39,15 @@ namespace FizzBuzzKata
 
         string Translate(int value)
         {
-            var result = string.Empty;
 
-            if (IsDivisibleBy(value, 3))
-                result += "Fizz";
-            if (IsDivisibleBy(value, 5))
-                result += "Buzz";
-            if (!IsDivisibleBy(value, 3) && !IsDivisibleBy(value, 5))
-                result += value.ToString();
+            var rules = new IRule[] {
+                new TranslationRule(3, "Fizz" ),
+                new TranslationRule(5, "Buzz" ),
+                new InvalidRule(new [] {3, 5})
+            };
+
+            var result = rules.Where(rule => rule.IsFor(value))
+                              .Aggregate(string.Empty, (res, rule) => res + rule.Translation(value)); 
 
             return result;
         }
@@ -53,6 +55,55 @@ namespace FizzBuzzKata
         private bool IsDivisibleBy(int value, int divisor)
         {
             return value % divisor == 0;
+        }
+    }
+
+    interface IRule
+    {
+        string Translation(int value);
+
+        bool IsFor(int value);
+    }
+
+    class TranslationRule : IRule
+    {
+        private readonly int _divisor;
+        private readonly string _translation;
+
+        public TranslationRule(int divisor, string translation)
+        {
+            _divisor = divisor;
+            _translation = translation;
+        }
+
+        public string Translation(int value)
+        { 
+            return _translation; 
+        }
+
+        public bool IsFor(int value)
+        {
+            return value % _divisor == 0;
+        }
+    }
+
+    class InvalidRule : IRule
+    {
+        private readonly int[] _invalidDivisors;
+
+        public InvalidRule(int[] invalidDivisors)
+        {
+            _invalidDivisors = invalidDivisors;
+        }
+
+        public string Translation(int value)
+        { 
+            return value.ToString(); 
+        }
+
+        public bool IsFor(int value)
+        {
+            return _invalidDivisors.All(divisor => value % divisor != 0);
         }
     }
 }

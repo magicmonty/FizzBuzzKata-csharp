@@ -37,6 +37,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FizzBuzzTest.cs" />
+    <Compile Include="InvalidRule.cs" />
+    <Compile Include="TranslationRule.cs" />
+    <Compile Include="IRule.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
