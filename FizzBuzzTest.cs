@@ -13,6 +13,15 @@ namespace FizzBuzzKata
          * - Values divisble by 3 and 5 are converted to "FizzBuzz"
          * - All other values are converted to their string representations
          */
+        [Test]
+        public void ShouldReturnFizzForValuesDivisibleBy3()
+        {
+            var value = 3;
+            var result = string.Empty;
+            if (value % 3 == 0)
+                result = "Fizz";
+            Assert.That(result, Is.EqualTo("Fizz"));
+        }
     }
 }
 
