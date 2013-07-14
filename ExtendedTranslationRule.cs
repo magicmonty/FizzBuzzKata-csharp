@@ -1,6 +1,5 @@
 namespace FizzBuzzKata
 {
-
     class ExtendedTranslationRule : TranslationRule
     {
         public ExtendedTranslationRule(int divisor, string translation): base(divisor, translation)

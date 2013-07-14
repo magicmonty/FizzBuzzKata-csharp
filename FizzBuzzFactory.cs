@@ -4,7 +4,12 @@ namespace FizzBuzzKata
     {
         public static RuleBasedTranslator CreateFizzBuzz()
         {
-            var rules = RuleFactory.CreateRules(
+            return CreateFizzBuzz(new RuleFactory());
+        }
+
+        public static RuleBasedTranslator CreateFizzBuzz(IRuleFactory ruleFactory)
+        {
+            var rules = ruleFactory.CreateRules(
                 new RuleInitializer { Divisor = 3, Translation = "Fizz" }, 
                 new RuleInitializer { Divisor = 5, Translation = "Buzz" });
 
@@ -13,19 +18,15 @@ namespace FizzBuzzKata
 
         public static RuleBasedTranslator CreateFizzBuzzBang()
         {
-            var rules = RuleFactory.CreateRules(
+            return CreateFizzBuzzBang(new RuleFactory());
+        }
+
+        public static RuleBasedTranslator CreateFizzBuzzBang(IRuleFactory ruleFactory)
+        {
+            var rules = ruleFactory.CreateRules(
                 new RuleInitializer { Divisor = 3, Translation = "Fizz" }, 
                 new RuleInitializer { Divisor = 5, Translation = "Buzz" }, 
                 new RuleInitializer { Divisor = 7, Translation = "Bang" });
-
-            return new RuleBasedTranslator(rules);
-        }
-
-        public static RuleBasedTranslator CreateExtendedFizzBuzz()
-        {
-            var rules = RuleFactory.CreateExtendedRules(
-                new RuleInitializer { Divisor = 3, Translation = "Fizz" }, 
-                new RuleInitializer { Divisor = 5, Translation = "Buzz" });
 
             return new RuleBasedTranslator(rules);
         }

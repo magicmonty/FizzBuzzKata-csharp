@@ -47,6 +47,9 @@
     <Compile Include="RuleFactory.cs" />
     <Compile Include="ExtendedFizzBuzzTest.cs" />
     <Compile Include="ExtendedTranslationRule.cs" />
+    <Compile Include="ExtendedRuleFactory.cs" />
+    <Compile Include="IRuleFactory.cs" />
+    <Compile Include="ExtendedInvalidRule.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

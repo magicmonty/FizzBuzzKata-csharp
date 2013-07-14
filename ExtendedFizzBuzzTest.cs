@@ -11,7 +11,7 @@ namespace FizzBuzzKata
         [SetUp]
         public void SetUp()
         {
-            _sut = FizzBuzzFactory.CreateExtendedFizzBuzz();
+            _sut = FizzBuzzFactory.CreateFizzBuzz(new ExtendedRuleFactory());
         }
         /*
          * Rules:

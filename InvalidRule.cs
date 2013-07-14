@@ -21,17 +21,4 @@ namespace FizzBuzzKata
             return InvalidDivisors.All(divisor => value % divisor != 0);
         }
     }
-
-    class ExtendedInvalidRule : InvalidRule
-    {
-        public ExtendedInvalidRule(int[] invalidDivisors) : base(invalidDivisors)
-        {
-        }
-
-        public override bool IsFor(int value)
-        {
-            return base.IsFor(value) 
-                && InvalidDivisors.All(d => !value.ToString().Contains(d.ToString()));
-        }
-    }
 }
