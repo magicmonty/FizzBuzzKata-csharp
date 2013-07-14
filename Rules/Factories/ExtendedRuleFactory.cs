@@ -1,4 +1,3 @@
-using System.Linq;
 using System.Collections.Generic;
 
 namespace FizzBuzzKata
@@ -7,9 +6,18 @@ namespace FizzBuzzKata
     {
         public IRule[] CreateRules(params RuleInitializer[] initializers)
         {
-            return new List<IRule>(initializers.Select(i => new ExtendedTranslationRule(i.Divisor, i.Translation))) {
-                new ExtendedInvalidRule(initializers.Select(i => i.Divisor).ToArray())
-            }.ToArray();
+            var result = new List<IRule>();
+
+            var invalidDivisors = new List<int>();
+
+            foreach (var i in initializers) {
+                result.Add(new ExtendedTranslationRule(i.Divisor, i.Translation));
+                invalidDivisors.Add(i.Divisor);
+            }
+
+            result.Add(new ExtendedInvalidRule(invalidDivisors.ToArray()));
+
+            return result.ToArray();
         }
     }
 }

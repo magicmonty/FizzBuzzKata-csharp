@@ -1,5 +1,3 @@
-using System.Linq;
-
 namespace FizzBuzzKata
 {
     class InvalidRule : IRule
@@ -18,7 +16,12 @@ namespace FizzBuzzKata
 
         public virtual bool IsFor(int value)
         {
-            return InvalidDivisors.All(divisor => value % divisor != 0);
+            var result = true;
+            foreach (var divisor in InvalidDivisors) {
+                result &= value % divisor != 0;
+            }
+
+            return result;
         }
     }
 }

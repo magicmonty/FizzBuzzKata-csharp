@@ -1,5 +1,3 @@
-using System.Linq;
-
 namespace FizzBuzzKata
 {
     class RuleBasedTranslator
@@ -13,8 +11,25 @@ namespace FizzBuzzKata
 
         public string Translate(int value)
         {
-            return _rules.Where(rule => rule.IsFor(value))
-                         .Aggregate(string.Empty, (res, rule) => res + rule.Translation(value)); 
+            var translation = string.Empty;
+
+            var enumerator = _rules.GetEnumerator();
+
+            enumerator.Reset();
+            while (enumerator.MoveNext()) {
+                var rule = enumerator.Current as IRule;
+
+                while (!rule.IsFor(value) && enumerator.MoveNext()) {
+                    rule = enumerator.Current as IRule;
+                }
+
+                while (rule.IsFor(value)) {
+                    translation += rule.Translation(value);
+                    break;
+                }
+            }
+
+            return translation;
         }
     }
 }

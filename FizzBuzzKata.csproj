@@ -33,7 +33,6 @@
     <Reference Include="nunit.framework">
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RuleBasedTranslator.cs" />
