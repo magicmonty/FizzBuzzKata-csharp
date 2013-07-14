@@ -41,6 +41,7 @@
     <Compile Include="TranslationRule.cs" />
     <Compile Include="IRule.cs" />
     <Compile Include="RuleBasedTranslator.cs" />
+    <Compile Include="FizzBuzzFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

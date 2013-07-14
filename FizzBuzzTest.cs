@@ -7,6 +7,13 @@ namespace FizzBuzzKata
     [TestFixture]
     public class Test
     {
+        private RuleBasedTranslator _sut;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _sut = FizzBuzzFactory.CreateFizzBuzz();
+        }
         /*
          * Rules:
          * - Values divisble by 3 are converted to "Fizz"
@@ -32,23 +39,9 @@ namespace FizzBuzzKata
         [TestCase(15, "FizzBuzz")]
         public void ShouldReturnCorrectValue(int valueToTranslate, string expectedResult)
         {
-            var translation = Translate(valueToTranslate);
+            var translation = _sut.Translate(valueToTranslate);
 
             Assert.That(translation, Is.EqualTo(expectedResult));
-        }
-
-        string Translate(int value)
-        {
-
-            var rules = new IRule[] {
-                new TranslationRule(3, "Fizz" ),
-                new TranslationRule(5, "Buzz" ),
-                new InvalidRule(new [] {3, 5})
-            };
-
-            var translator = new RuleBasedTranslator(rules);
-
-            return translator.Translate(value);
         }
     }
 }
