@@ -36,20 +36,25 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InvalidRule.cs" />
-    <Compile Include="TranslationRule.cs" />
-    <Compile Include="IRule.cs" />
     <Compile Include="RuleBasedTranslator.cs" />
     <Compile Include="FizzBuzzFactory.cs" />
-    <Compile Include="FizzBuzzBangTest.cs" />
-    <Compile Include="FizzBuzzTest.cs" />
-    <Compile Include="RuleInitializer.cs" />
-    <Compile Include="RuleFactory.cs" />
-    <Compile Include="ExtendedFizzBuzzTest.cs" />
-    <Compile Include="ExtendedTranslationRule.cs" />
-    <Compile Include="ExtendedRuleFactory.cs" />
-    <Compile Include="IRuleFactory.cs" />
-    <Compile Include="ExtendedInvalidRule.cs" />
+    <Compile Include="Test\FizzBuzzBangTest.cs" />
+    <Compile Include="Test\ExtendedFizzBuzzTest.cs" />
+    <Compile Include="Test\FizzBuzzTest.cs" />
+    <Compile Include="Rules\TranslationRule.cs" />
+    <Compile Include="Rules\IRule.cs" />
+    <Compile Include="Rules\ExtendedInvalidRule.cs" />
+    <Compile Include="Rules\ExtendedTranslationRule.cs" />
+    <Compile Include="Rules\InvalidRule.cs" />
+    <Compile Include="Rules\Factories\RuleFactory.cs" />
+    <Compile Include="Rules\Factories\IRuleFactory.cs" />
+    <Compile Include="Rules\RuleInitializer.cs" />
+    <Compile Include="Rules\Factories\ExtendedRuleFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Test\" />
+    <Folder Include="Rules\" />
+    <Folder Include="Rules\Factories\" />
+  </ItemGroup>
 </Project>
