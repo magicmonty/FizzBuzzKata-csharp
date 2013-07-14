@@ -1,10 +1,5 @@
-using System;
-using NUnit.Framework;
-using System.Linq;
-
 namespace FizzBuzzKata
 {
-
     class TranslationRule : IRule
     {
         private readonly int _divisor;
@@ -26,5 +21,4 @@ namespace FizzBuzzKata
             return value % _divisor == 0;
         }
     }
-
 }

@@ -1,10 +1,7 @@
-using System;
-using NUnit.Framework;
 using System.Linq;
 
 namespace FizzBuzzKata
 {
-
     class RuleBasedTranslator
     {
         private readonly IRule[] _rules;

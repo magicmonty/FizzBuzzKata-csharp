@@ -1,10 +1,7 @@
-using System;
-using NUnit.Framework;
 using System.Linq;
 
 namespace FizzBuzzKata
 {
-
     class InvalidRule : IRule
     {
         private readonly int[] _invalidDivisors;
