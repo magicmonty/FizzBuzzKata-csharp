@@ -16,8 +16,11 @@ namespace FizzBuzzKata
         /*
          * Rules:
          * - Values divisble by 3 are converted to "Fizz"
+         * - Values which contain the digit 3 are also converted to "Fizz"
          * - Values divisble by 5 are converted to "Buzz"
+         * - Values which contain the digit 5 are also converted to "Buzz"
          * - Values divisble by 3 and 5 are converted to "FizzBuzz"
+         * - Values which contain the digits 3 and 5 are also converted to "FizzBuzz"
          * - All other values are converted to their string representations
          */
         [Test]
