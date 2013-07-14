@@ -4,23 +4,19 @@ namespace FizzBuzzKata
     {
         public static RuleBasedTranslator CreateFizzBuzz()
         {
-            var rules = new IRule[] {
-                new TranslationRule(3, "Fizz" ),
-                new TranslationRule(5, "Buzz" ),
-                new InvalidRule(new [] {3, 5})
-            };
+            var rules = RuleFactory.CreateRules(
+                new RuleInitializer { Divisor = 3, Translation = "Fizz" }, 
+                new RuleInitializer { Divisor = 5, Translation = "Buzz" });
 
             return new RuleBasedTranslator(rules);
         }
 
         public static RuleBasedTranslator CreateFizzBuzzBang()
         {
-            var rules = new IRule[] {
-                new TranslationRule(3, "Fizz" ),
-                new TranslationRule(5, "Buzz" ),
-                new TranslationRule(7, "Bang" ),
-                new InvalidRule(new [] {3, 5, 7})
-            };
+            var rules = RuleFactory.CreateRules(
+                new RuleInitializer { Divisor = 3, Translation = "Fizz" }, 
+                new RuleInitializer { Divisor = 5, Translation = "Buzz" }, 
+                new RuleInitializer { Divisor = 7, Translation = "Bang" });
 
             return new RuleBasedTranslator(rules);
         }

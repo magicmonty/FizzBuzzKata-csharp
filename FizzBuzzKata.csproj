@@ -43,6 +43,8 @@
     <Compile Include="FizzBuzzFactory.cs" />
     <Compile Include="FizzBuzzBangTest.cs" />
     <Compile Include="FizzBuzzTest.cs" />
+    <Compile Include="RuleInitializer.cs" />
+    <Compile Include="RuleFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
